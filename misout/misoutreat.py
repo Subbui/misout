@@ -1,3 +1,4 @@
+import numpy as np
 #class VariableTreat:
 #    '''Class method to impute missing values'''
 #    def __init__(self,df):
