@@ -7,20 +7,20 @@ class VariableTreat:
 
     def outlier_treat(self,lower_percentile=0,upper_percentile=99,var_list=[]):
         try:
-        if ((len(var_list)>0) and (upper_percentile <= 100) and (lower_percentile>=0)):                    
-            for i in self.df.select_dtypes(include=np.number).columns:
-                if i in var_list:
-                    ll,ul = np.nanpercentile(self.df[i],[lower_percentile,upper_percentile])
-                    self.df[i].loc[self.df[i]<ll]=ll
-                    self.df[i].loc[self.df[i]>ul] = ul
-                else:
-                    pass
-        elif not var_list:
-            print("Variable list can't be empty")
-        elif ((upper_percentile>100) or (lower_percentile<0)):
-            print("Percentile values should be betweeen 0 and 100")
-        else:
-            print('Unknown error')
+            if ((len(var_list)>0) and (upper_percentile <= 100) and (lower_percentile>=0)):                    
+                for i in self.df.select_dtypes(include=np.number).columns:
+                    if i in var_list:
+                        ll,ul = np.nanpercentile(self.df[i],[lower_percentile,upper_percentile])
+                        self.df[i].loc[self.df[i]<ll]=ll
+                        self.df[i].loc[self.df[i]>ul] = ul
+                    else:
+                        pass
+            elif not var_list:
+                print("Variable list can't be empty")
+            elif ((upper_percentile>100) or (lower_percentile<0)):
+                print("Percentile values should be betweeen 0 and 100")
+            else:
+                print('Unknown error')
         except:
             print("Error in the values")
             
