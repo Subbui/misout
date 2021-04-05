@@ -52,7 +52,7 @@ class VariableTreat:
             print('missing percent value should be grater than 0')
         
         try:
-            lst = self.df.select_dtypes(include=np.number).columns:
+            lst = self.df.select_dtypes(include=np.number).columns
             for i in self.df.columns:            
                 if ((i in lst) and (self.df[i].isnull().sum()>0) and (i not in exclude_var)):
                     if num_impute=='other':
