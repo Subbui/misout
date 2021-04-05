@@ -52,8 +52,9 @@ class VariableTreat:
             print('missing percent value should be grater than 0')
         
         try:
-            for i in self.df.select_dtypes(include=np.number).columns:
-                if (((self.df[i].isnull().sum()>0)) and (i not in exclude_var)):
+            lst = self.df.select_dtypes(include=np.number).columns:
+            for i in self.df.columns:            
+                if ((i in lst) and (self.df[i].isnull().sum()>0) and (i not in exclude_var)):
                     if num_impute=='other':
                         self.df[i].fillna(num_impute_value,inplace=True)
                     elif num_impute=='mean':
