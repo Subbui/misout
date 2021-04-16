@@ -78,7 +78,7 @@ class VariableTreat:
                 pass
         except:
 
-            print('missing percent value should be grater than 0')
+            print('missing percent value should be between 0 and 1')
         
         try:
             
